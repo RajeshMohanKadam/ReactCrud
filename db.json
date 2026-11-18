@@ -1,0 +1,104 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Fanya Holt",
+      "email": "fanya@gmail.com",
+      "phone": "8996655903",
+      "status": "Active",
+      "address": "24 Carpenter Junction",
+      "department": "Engineering",
+      "designation": "Frontend Developer"
+    },
+    {
+      "id": "2",
+      "name": "Romeo Bratton",
+      "email": "romeo@gmail.com",
+      "phone": "5161484237",
+      "status": "Inactive",
+      "address": "6066 Tomscot Street",
+      "department": "HR",
+      "designation": "HR Executive"
+    },
+    {
+      "id": "3",
+      "name": "Eliot Constantine",
+      "email": "eliot@gmail.com",
+      "phone": "8936647229",
+      "status": "Active",
+      "address": "9201 Spohn Way",
+      "department": "Engineering",
+      "designation": "Backend Developer"
+    },
+    {
+      "id": "4",
+      "name": "Raleigh Silk",
+      "email": "raleigh@gmail.com",
+      "phone": "2045312864",
+      "status": "Pending",
+      "address": "297 Forest Run Way",
+      "department": "Finance",
+      "designation": "Accountant"
+    },
+    {
+      "id": "5",
+      "name": "Mikael Larchier",
+      "email": "mikael@gmail.com",
+      "phone": "3784235661",
+      "status": "Active",
+      "address": "98 Manufacturers Alley",
+      "department": "Marketing",
+      "designation": "Marketing Executive"
+    },
+    {
+      "id": "6",
+      "name": "Clarke Morratt",
+      "email": "clarke@gmail.com",
+      "phone": "1357657650",
+      "status": "Inactive",
+      "address": "17 Everett Street",
+      "department": "Engineering",
+      "designation": "QA Engineer"
+    },
+    {
+      "id": "7",
+      "name": "Patrica Henryson",
+      "email": "patrica@gmail.com",
+      "phone": "8634693238",
+      "status": "Pending",
+      "address": "751 Cottonwood Hill",
+      "department": "HR",
+      "designation": "Recruiter"
+    },
+    {
+      "id": "8",
+      "name": "Wandis Whatmough",
+      "email": "wandis@gmail.com",
+      "phone": "8136073190",
+      "status": "Active",
+      "address": "91229 Kennedy Way",
+      "department": "Sales",
+      "designation": "Sales Executive"
+    },
+    {
+      "id": "9",
+      "name": "Dilly Gladdish",
+      "email": "dilly@gmail.com",
+      "phone": "5044963524",
+      "status": "Inactive",
+      "address": "266 Norway Maple Lane",
+      "department": "Finance",
+      "designation": "Financial Analyst"
+    },
+    {
+      "id": "10",
+      "name": "Addy Bircher",
+      "email": "addy@gmail.com",
+      "phone": "1456338288",
+      "status": "Active",
+      "address": "59460 Luster Avenue",
+      "department": "Engineering",
+      "designation": "Full Stack Developer"
+    }
+  ]
+}
