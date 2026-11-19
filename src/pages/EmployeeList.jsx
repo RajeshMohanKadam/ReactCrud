@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 import { getEmployees } from '../services/employeeService'
+import Button from '../components/common/Button'
+import Input from '../components/common/Input'
+import Select from '../components/common/Select'
+import PageHeader from '../components/common/PageHeader'
 import Table from '../components/common/Table'
+import StatusBadge from '../components/common/StatusBadge'
 
 const employeeColumns = [
   {
@@ -25,19 +30,7 @@ const employeeColumns = [
   {
     key: 'status',
     label: 'Status',
-    render: (value, obj) => (
-      <span
-        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-          value === 'Active'
-            ? 'bg-green-100 text-green-700'
-            : value === 'Inactive'
-              ? 'bg-red-100 text-red-700'
-              : 'bg-blue-100 text-blue-700'
-        }`}
-      >
-        {value}
-      </span>
-    ),
+    render: (value, obj) => <StatusBadge status={value} />,
   },
   {
     key: 'address',
@@ -66,6 +59,12 @@ const employeeColumns = [
   },
 ]
 
+const statusOptions = [
+  { value: 'Active', label: 'Active' },
+  { value: 'Inactive', label: 'Inactive' },
+  { value: 'Pending', label: 'Pending' },
+]
+
 function EmployeeList() {
   // Store employee records
   const [employees, setEmployees] = useState([])
@@ -73,6 +72,9 @@ function EmployeeList() {
   const [loading, setLoading] = useState(true)
   // Store API error
   const [error, setError] = useState('')
+
+  const [search, setSearch] = useState('')
+  const [status, setStatus] = useState('')
 
   useEffect(() => {
     fetchEmployees()
@@ -94,14 +96,56 @@ function EmployeeList() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="px-6 py-8 max-w-7xl mx-auto">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">Users List</h1>
-        <Table
-          data={employees}
-          columns={employeeColumns}
-          keyField="id"
-          emptyMessage="No employees available."
-        />
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Page Header */}
+        <PageHeader
+          title="Employee Management"
+          description="Manage and organize your employees"
+        >
+          <Button onClick={() => console.log('Add Employee clicked')}>
+            + Add Employee
+          </Button>
+        </PageHeader>
+
+        {/* Search and Filter Section */}
+        <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Input
+              name="search"
+              placeholder="Search by name, email or phone..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <Select
+              name="status"
+              placeholder="All Statuses"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              options={statusOptions}
+            />
+          </div>
+        </div>
+
+        {/* Loading State */}
+        {loading && (
+          <p className="text-blue-600 font-medium">Loading employees...</p>
+        )}
+
+        {/* Error State */}
+        {!loading && error && (
+          <p className="text-red-600 bg-red-50 p-4 rounded-lg">{error}</p>
+        )}
+
+        {/* Employee Table */}
+        {!loading && !error && (
+          <Table
+            columns={employeeColumns}
+            data={employees}
+            keyField="id"
+            emptyMessage="No employees available."
+          />
+        )}
       </div>
     </div>
   )
